@@ -20,6 +20,6 @@ app.use(helmet())
 
 app.use(eventsRouter);
 app.use(UsersRouter);
-app.user(CommentsRouter);
+app.use(CommentsRouter);
 
 module.exports = app

@@ -10,8 +10,9 @@ const jsonBodyParser = express.json();
 const serializeComment = comment => ({
   id: comment.id,
   text: xss(comment.text),
-  date_comments: comment.date_commented,
-  user_id: comment.user_id
+  date_commented: comment.date_commented,
+  user_id: comment.user_id, 
+  event_id: comment.event_id
 })
 
 commentsRouter
@@ -27,8 +28,8 @@ commentsRouter
 })
 
 .post(jsonBodyParser, (req, res, next) => {
-  const { text, user_id, date_commented } = req.body
-  const newComment = { text, user_id }
+  const { text, user_id, event_id, date_commented } = req.body
+  const newComment = { text, user_id, event_id }
 
   for(const [key, value] of Object.entries(newComment)) {
     if(value == null) {
