@@ -6,6 +6,7 @@ const helmet = require('helmet')
 const { NODE_ENV } = require('./config')
 const eventsRouter = require('./Events/Events-router')
 const UsersRouter = require('./Users/Users-router')
+const CommentsRouter = require('./Comments/Comments-router')
 
 const app = express()
 
@@ -18,6 +19,7 @@ app.use(cors())
 app.use(helmet())
 
 app.use(eventsRouter);
-app.use(UsersRouter)
+app.use(UsersRouter);
+app.user(CommentsRouter);
 
 module.exports = app
