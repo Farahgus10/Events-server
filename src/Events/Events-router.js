@@ -9,6 +9,8 @@ const jsonBodyParser = express.json();
 eventsRouter
 .route('/api/events')
 .get((req, res, next) => {
+  
+
   const db = req.app.get('db');
   eventsService.getEvents(db)
     .then(results => {
